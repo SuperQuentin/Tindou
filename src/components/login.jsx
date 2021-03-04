@@ -1,6 +1,15 @@
 import React, { Component } from "react";
+import TextInput from "./text_input";
 
 class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: "",
+    };
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -9,16 +18,8 @@ class Login extends Component {
             <div className="wrap-login100">
               <form className="login100-form validate-form">
                 <span className="login100-form-title p-b-43">Login</span>
-                <div className="wrap-input100 validate-input">
-                  <input type="text" name="email" className="input100" />
-                  <span className="focus-input100"></span>
-                  <span className="label-input100">Email</span>
-                </div>
-                <div className="wrap-input100 validate-input">
-                  <input type="password" name="password" className="input100" />
-                  <span className="focus-input100"></span>
-                  <span className="label-input100">Mot de passe</span>
-                </div>
+                <TextInput name="email" type="email" label="Email" />
+                <TextInput name="password" type="password" label="Mot de passe" />
                 <div className="flex-sb-m w-full p-t-3 p-b-32">
                   <div className="contact100-form-checkbox">
                     <input
