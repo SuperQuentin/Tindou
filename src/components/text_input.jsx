@@ -7,6 +7,7 @@ class TextInput extends Component {
       name: props.name,
       type: props.type,
       label: props.label,
+      mandatory: props.mandatory,
     };
   }
 
@@ -28,6 +29,7 @@ class TextInput extends Component {
             className="input100"
             onBlur={this.handleBlur}
             onFocus={this.handleFocus}
+            required={this.mandatory}
           />
           <span className="focus-input100"></span>
           <span className="label-input100">{this.state.label}</span>

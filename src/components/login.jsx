@@ -22,11 +22,17 @@ class Login extends Component {
             <div className="wrap-login100">
               <form className="login100-form validate-form">
                 <span className="login100-form-title p-b-43">Login</span>
-                <TextInput name="email" type="email" label="Email" />
+                <TextInput
+                  name="email"
+                  type="email"
+                  label="Email"
+                  mandatory={true}
+                />
                 <TextInput
                   name="password"
                   type="password"
                   label="Mot de passe"
+                  mandatory={true}
                 />
                 <div className="flex-sb-m w-full p-t-3 p-b-32">
                   <div className="contact100-form-checkbox">
