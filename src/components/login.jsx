@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import TextInput from "./text_input";
+import Button from "./button";
 
 class Login extends Component {
   constructor(props) {
@@ -19,7 +20,11 @@ class Login extends Component {
               <form className="login100-form validate-form">
                 <span className="login100-form-title p-b-43">Login</span>
                 <TextInput name="email" type="email" label="Email" />
-                <TextInput name="password" type="password" label="Mot de passe" />
+                <TextInput
+                  name="password"
+                  type="password"
+                  label="Mot de passe"
+                />
                 <div className="flex-sb-m w-full p-t-3 p-b-32">
                   <div className="contact100-form-checkbox">
                     <input
@@ -39,9 +44,7 @@ class Login extends Component {
                     </a>
                   </div>
                 </div>
-                <div className="container-login100-form-btn">
-                  <button className="login100-form-btn">Login</button>
-                </div>
+                <Button name="login" label="login"></Button>
                 <div className="text-center p-t-46 p-b-20">
                   <span className="txt2">Se connecter avec</span>
                 </div>
