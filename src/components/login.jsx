@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import TextInput from "./text_input";
-import Button from "./button";
 
 class Login extends Component {
   constructor(props) {
@@ -9,6 +8,10 @@ class Login extends Component {
       email: "",
       password: "",
     };
+  }
+
+  login() {
+    // TODO
   }
 
   render() {
@@ -44,7 +47,11 @@ class Login extends Component {
                     </a>
                   </div>
                 </div>
-                <Button name="login" label="login"></Button>
+                <div className="container-login100-form-btn">
+                  <button className="login100-form-btn" onClick={this.login}>
+                    Login
+                  </button>
+                </div>
                 <div className="text-center p-t-46 p-b-20">
                   <span className="txt2">Se connecter avec</span>
                 </div>
