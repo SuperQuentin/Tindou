@@ -15,7 +15,7 @@
       "monospaceLinks": false
   },
   "opts": {
-    "destination": "docs",
+    "destination": "gendocs",
     "recurse": true,
     "readme": "README.md"
   }
