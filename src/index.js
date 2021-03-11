@@ -5,7 +5,6 @@ import "font-awesome/css/font-awesome.css";
 import "./assets/css/index.css";
 import "./assets/css/main.css";
 import "./assets/css/util.css";
-import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Login from "./pages/login";
 
