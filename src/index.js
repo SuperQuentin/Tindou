@@ -7,7 +7,7 @@ import "./assets/css/main.css";
 import "./assets/css/util.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import Login from "./components/login";
+import Login from "./pages/login";
 
 ReactDOM.render(
   <React.StrictMode>
