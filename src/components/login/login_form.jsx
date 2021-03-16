@@ -1,13 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 import TextInput from "../text_input";
 
-class LoginForm extends Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
     };
+
+    this.login = this.login.bind(this);
+  }
+
+  handleInputChange(name, value) {
+    this.setState({
+      [name]: value,
+    });
   }
 
   login() {
@@ -16,14 +24,21 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form className="login100-form validate-form">
+      <form className="login100-form validate-form" onSubmit={this.login}>
         <span className="login100-form-title p-b-43">Login</span>
-        <TextInput name="email" type="email" label="Email" mandatory={true} />
+        <TextInput
+          name="email"
+          type="email"
+          label="Email"
+          mandatory={true}
+          handleInputChange={this.handleInputChange.bind(this)}
+        />
         <TextInput
           name="password"
           type="password"
           label="Mot de passe"
           mandatory={true}
+          handleInputChange={this.handleInputChange.bind(this)}
         />
         <div className="flex-sb-m w-full p-t-3 p-b-32">
           <div className="contact100-form-checkbox">
@@ -42,9 +57,7 @@ class LoginForm extends Component {
           </div>
         </div>
         <div className="container-login100-form-btn">
-          <button className="login100-form-btn" onClick={this.login}>
-            Login
-          </button>
+          <button className="login100-form-btn">Login</button>
         </div>
         <div className="text-center p-t-46 p-b-20">
           <span className="txt2">Se connecter avec</span>

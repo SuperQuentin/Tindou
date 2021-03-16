@@ -1,15 +1,15 @@
-import React, { Component } from "react";
+import React from "react";
 
 /**
  * TextInput component
  * @description will provide text input with optional feature
  * @visibleName Text input
  */
-class TextInput extends Component {
+class TextInput extends React.Component {
   /**
    * TextInput constructor
    * @description register props in the state of the component
-   * @param {any} props 
+   * @param {any} props
    */
   constructor(props) {
     super(props);
@@ -35,19 +35,25 @@ class TextInput extends Component {
        */
       mandatory: props.mandatory,
     };
+    
+    this.handleInputChange = this.handleInputChange.bind(this);
+  }
+
+  handleInputChange(event) {    
+    this.props.handleInputChange(this.state.name, event.target.value);
   }
 
   /**
-   * 
-   * @param {*} event 
+   *
+   * @param {*} event
    */
   handleBlur(event) {
     if (event.target.value == "") event.target.className = "input100";
   }
 
   /**
-   * 
-   * @param {*} event 
+   *
+   * @param {*} event
    */
   handleFocus(event) {
     event.target.className = "input100 has-val";
@@ -63,6 +69,7 @@ class TextInput extends Component {
           onBlur={this.handleBlur}
           onFocus={this.handleFocus}
           required={this.mandatory}
+          onChange={this.handleInputChange}
         />
         <span className="focus-input100"></span>
         <span className="label-input100">{this.state.label}</span>
