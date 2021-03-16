@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React from "react";
 
-class LoginBackground extends Component {
+class LoginBackground extends React.Component {
   render() {
     return <div className="login100-more"></div>;
   }
