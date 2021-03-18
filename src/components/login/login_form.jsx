@@ -1,5 +1,6 @@
 import React from "react";
 import TextInput from "../text_input";
+import Error from '../error'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -7,6 +8,7 @@ class LoginForm extends React.Component {
     this.state = {
       email: "",
       password: "",
+      errorMsg: ""
     };
 
     this.login = this.login.bind(this);
@@ -26,6 +28,7 @@ class LoginForm extends React.Component {
     return (
       <form className="login100-form validate-form" onSubmit={this.login}>
         <span className="login100-form-title p-b-43">Login</span>
+        <Error errorMsg={this.state.errorMsg}/>
         <TextInput
           name="email"
           type="email"
