@@ -1,55 +1,73 @@
-import React from "react";
-import TextInput from "../text_input";
+import React, { Component } from "react";
 
-class LoginForm extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      email: "",
-      password: "",
-    };
+class LoginForm extends Component {
+  state = {
+    email: "",
+    password: "",
+  };
 
-    this.login = this.login.bind(this);
-  }
+  handleInputChange = (event) => {
+    const name = event.target.name;
+    const value = event.target.value;
 
-  handleInputChange(name, value) {
-    this.setState({
-      [name]: value,
-    });
-  }
+    if (value != "") event.target.className += " has-val";
+    else event.target.className = "input100";
 
-  login() {
-    // TODO
-  }
+    this.setState(
+      {
+        [name]: value,
+      },
+      this.changeButtonState
+    );
+  };
+
+  changeButtonState = () => {
+    const loginButton = document.getElementById("loginButton");
+
+    if (this.state.email == "" || this.state.password == "") {
+      loginButton.classList.add("login100-form-btn-disabled");
+      loginButton.setAttribute("disabled", "true");
+    } else {
+      loginButton.classList.remove("login100-form-btn-disabled");
+      loginButton.removeAttribute("disabled");
+    }
+  };
+
+  login = () => {
+    console.log(this.state.email, this.state.password);
+  };
 
   render() {
     return (
       <form className="login100-form validate-form" onSubmit={this.login}>
         <span className="login100-form-title p-b-43">Login</span>
-        <TextInput
-          name="email"
-          type="email"
-          label="Email"
-          mandatory={true}
-          handleInputChange={this.handleInputChange.bind(this)}
-        />
-        <TextInput
-          name="password"
-          type="password"
-          label="Mot de passe"
-          mandatory={true}
-          handleInputChange={this.handleInputChange.bind(this)}
-        />
+        <div className="wrap-input100 validate-input">
+          <input
+            id="email"
+            type="email"
+            name="email"
+            className="input100"
+            value={this.state.email}
+            required={true}
+            onChange={this.handleInputChange}
+          />
+          <span className="focus-input100"></span>
+          <span className="label-input100">Email</span>
+        </div>
+        <div className="wrap-input100 validate-input">
+          <input
+            id="password"
+            type="password"
+            name="password"
+            className="input100"
+            value={this.state.password}
+            required={true}
+            onChange={this.handleInputChange}
+          />
+          <span className="focus-input100"></span>
+          <span className="label-input100">Password</span>
+        </div>
         <div className="flex-sb-m w-full p-t-3 p-b-32">
-          <div className="contact100-form-checkbox">
-            <input
-              type="checkbox"
-              id="remember-me"
-              name="remember-me"
-              className="input-checkbox100"
-            />
-            <label htmlFor="remember-me" className="label-checkbox100"></label>
-          </div>
           <div>
             <a href="#" className="txt1">
               Mot de passe oublié ?
@@ -57,7 +75,13 @@ class LoginForm extends React.Component {
           </div>
         </div>
         <div className="container-login100-form-btn">
-          <button className="login100-form-btn">Login</button>
+          <button
+            id="loginButton"
+            className="login100-form-btn login100-form-btn-disabled"
+            disabled
+          >
+            Login
+          </button>
         </div>
         <div className="text-center p-t-46 p-b-20">
           <span className="txt2">Se connecter avec</span>

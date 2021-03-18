@@ -498,7 +498,10 @@ input.input100 {
   background: #333333;
 }
 
-
+.login100-form-btn-disabled {
+  background: #333333;
+  cursor: initial !important;
+}
 
 /*------------------------------------------------------------------
 [ Responsive ]*/

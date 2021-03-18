@@ -1,8 +1,8 @@
-import React from "react";
+import React, { Component } from "react";
 import LoginForm from "../components/login/login_form";
 import LoginBackground from "../components/login/login_background";
 
-class Login extends React.Component {
+class Login extends Component {
   render() {
     return (
       <div className="limiter">
