@@ -1,13 +1,17 @@
 import React, { Component } from "react";
-import Error from '../error'
+import Error from "../error";
 
 class LoginForm extends Component {
-    state = {
-      email: "",
-      password: "",
-      errorMsg: ""
-    };
+  state = {
+    email: "",
+    password: "",
+    errorMsg: "",
+  };
 
+  /**
+   * Change the text input class when it has a value or not
+   * @param {*} event
+   */
   handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -23,6 +27,9 @@ class LoginForm extends Component {
     );
   };
 
+  /**
+   * Change the button class when all the text inputs have a value or not
+   */
   changeButtonState = () => {
     const loginButton = document.getElementById("loginButton");
 
@@ -36,14 +43,14 @@ class LoginForm extends Component {
   };
 
   login = () => {
-    console.log(this.state.email, this.state.password);
+    // TODO
   };
 
   render() {
     return (
       <form className="login100-form validate-form" onSubmit={this.login}>
         <span className="login100-form-title p-b-43">Login</span>
-        <Error errorMsg={this.state.errorMsg}/>
+        <Error errorMsg={this.state.errorMsg} />
         <div className="wrap-input100 validate-input">
           <input
             id="email"
