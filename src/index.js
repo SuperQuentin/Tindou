@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.css";
 import "./assets/css/index.css";
-import "./assets/css/main.css";
-import "./assets/css/util.css";
 import reportWebVitals from "./reportWebVitals";
 import Login from "./pages/login";
 

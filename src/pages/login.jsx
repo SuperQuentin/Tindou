@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import LoginForm from "../components/login/login_form";
 import LoginBackground from "../components/login/login_background";
+import "../assets/css/login.css";
+import "../assets/css/login_util.css";
 
 class Login extends Component {
   render() {
