@@ -1,15 +1,21 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import reportWebVitals from "./reportWebVitals";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Home from "./pages/home";
+import Login from "./pages/login";
+import NotFound from "./pages/not_found";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "font-awesome/css/font-awesome.css";
-import "./assets/css/index.css";
-import reportWebVitals from "./reportWebVitals";
-import Login from "./pages/login";
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Login />
-  </React.StrictMode>,
+  <Router>
+    <Switch>
+      <Route path="/login" component={Login} />
+      <Route exact path="/" component={Home} />
+      <Route path="*" component={NotFound} />
+    </Switch>
+  </Router>,
   document.getElementById("root")
 );
 
