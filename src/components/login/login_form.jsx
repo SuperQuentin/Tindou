@@ -3,9 +3,9 @@ import Error from "../error";
 
 class LoginForm extends Component {
   state = {
-    email: "",
-    password: "",
-    errorMsg: "",
+    email: '',
+    password: '',
+    errorMsg: '',
   };
 
   /**
@@ -50,7 +50,7 @@ class LoginForm extends Component {
     return (
       <form className="login100-form validate-form" onSubmit={this.login}>
         <span className="login100-form-title p-b-43">Login</span>
-        <Error errorMsg={this.state.errorMsg} />
+        <Error id="errorMsg" errorMsg={this.state.errorMsg} />
         <div className="wrap-input100 validate-input">
           <input
             id="email"
