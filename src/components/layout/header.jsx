@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 class Header extends Component {
   render() {
     return (
-      <header id="masthead" className="site-header" role="banner">
+      <header className="site-header" role="banner">
         <div className="site-branding ">
           <div className="top-header container">
             <div className="search-header-form-container pull-right">
