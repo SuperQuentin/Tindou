@@ -16,8 +16,8 @@ class LoginForm extends Component {
     const name = event.target.name;
     const value = event.target.value;
 
-    if (value != "") event.target.className += " has-val";
-    else event.target.className = "input100";
+    if (value != "") event.target.classList.add("has-val");
+    else event.target.classList.remove("has-val");
 
     this.setState(
       {
