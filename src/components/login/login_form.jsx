@@ -3,9 +3,9 @@ import Error from "../error";
 
 class LoginForm extends Component {
   state = {
-    email: '',
-    password: '',
-    errorMsg: '',
+    email: "",
+    password: "",
+    errorMsg: "",
   };
 
   /**
