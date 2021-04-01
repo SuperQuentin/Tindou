@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Header extends Component {
+  toggleMenu = () => {
+    document.getElementById("site-navigation").classList.toggle("toggled");
+  };
+
   render() {
     return (
       <header className="site-header" role="banner">
@@ -43,6 +47,7 @@ class Header extends Component {
             className="menu-toggle"
             aria-controls="primary-menu"
             aria-expanded="false"
+            onClick={this.toggleMenu}
           >
             Menu
           </button>

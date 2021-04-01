@@ -8,7 +8,7 @@ class NotFound extends Component {
       <React.Fragment>
         <Header />
         <div className="container d-flex justify-content-center mb-5">
-          <h1>404 | Not found</h1>
+          <h1>404 | Page introuvable</h1>
         </div>
         <Footer />
       </React.Fragment>
