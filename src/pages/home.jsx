@@ -14,7 +14,7 @@ class Home extends Component {
         <div id="content" className="site-content container">
           <div id="primary" className="content-area row">
             <main className="site-main col-md-12 col-sm-12" role="main">
-              <div id="posts-container" class="row">
+              <div id="posts-container" className="row">
                 <Article title="Faites des rencontres inoubliables">
                   <p>
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.

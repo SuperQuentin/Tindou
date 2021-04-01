@@ -8,7 +8,7 @@ class Article extends Component {
 
   render() {
     return (
-      <article className="col-md-6 col-sm-12 post-36 post type-post status-publish format-standard hentry category-uncategorized">
+      <article className="col-md-6 col-sm-12 post-36 post type-post status-publish format-standard hentry category-uncategorized" data-testid="article">
         <div className="entry-content" data-testid="content">
           <h2 id="paragraph" data-testid="title">{this.props.title}</h2>
           {this.props.children}
