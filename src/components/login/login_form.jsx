@@ -48,7 +48,7 @@ class LoginForm extends Component {
 
   render() {
     return (
-      <form className="login100-form validate-form" onSubmit={this.login}>
+      <form className="login100-form validate-form" data-testid="loginform" onSubmit={this.login}>
         <span className="login100-form-title p-b-43">Login</span>
         <Error id="errorMsg" errorMsg={this.state.errorMsg} />
         <div className="wrap-input100 validate-input">
