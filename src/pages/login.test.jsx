@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import Login from './login'
 
 
-describe("Main components are loads", () => {
+describe("Login components are loads", () => {
   test("Loginform is load", () => {
     const login = render(<Login />);
 
