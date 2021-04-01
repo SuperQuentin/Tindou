@@ -60,6 +60,7 @@ class LoginForm extends Component {
             value={this.state.email}
             required={true}
             onChange={this.handleInputChange}
+            data-testid="email"
           />
           <span className="focus-input100"></span>
           <span className="label-input100">Email</span>
@@ -73,6 +74,7 @@ class LoginForm extends Component {
             value={this.state.password}
             required={true}
             onChange={this.handleInputChange}
+            data-testid="password"
           />
           <span className="focus-input100"></span>
           <span className="label-input100">Password</span>
@@ -88,6 +90,7 @@ class LoginForm extends Component {
           <button
             id="loginButton"
             className="login100-form-btn login100-form-btn-disabled"
+            data-testid="loginbtn"
             disabled
           >
             Login

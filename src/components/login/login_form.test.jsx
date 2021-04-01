@@ -1,67 +1,72 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { render, fireEvent } from "@testing-library/react";
 import Form from "./login_form";
 
 describe("Enable/Disable login form button based on inputs value state (empty/not empty)", () => {
   test("Login button is disable when email and password inputs are empty", () => {
-    let tree = renderer.create(<Form />).root;
+    const { getByTestId } = render(<Form />);
 
-    let email = tree.findByProps({ id: "email" });
-    let password = tree.findByProps({ id: "password" });
+    let email =  getByTestId('email')
+    let password = getByTestId('password')
 
-    let loginBtn = tree.findByProps({ id: "loginButton" });
+    let loginBtn = getByTestId('loginbtn')
 
-    expect(email.props.value).toBeNull();
-    expect(password.props.value).toBeNull();
-    expect(
-      loginBtn.props.className.includes("login100-form-btn-disabled")
-    ).toBe(true);
+    expect(email.value).toBeFalsy()
+    expect(password.value).toBeFalsy()
+    expect(loginBtn.className.includes("login100-form-btn-disabled")).toBeTruthy()
+    
   });
 
   test("Login button is disable when only email inputs is fullfilled", () => {
-    let tree = renderer.create(<Form email="testify@test.ch" />).root;
+    const { getByTestId } = render(<Form />);
 
-    let email = tree.findByProps({ id: "email" });
-    let password = tree.findByProps({ id: "password" });
+    let email =  getByTestId('email')
 
-    let loginBtn = tree.findByProps({ id: "loginButton" });
+    email.setAttribute('value', 'testify@test.ch')
+    fireEvent.change(email)
 
-    expect(email.props.value).toBeTruthy();
-    expect(password.props.value).toBeNull();
-    expect(
-      loginBtn.props.className.includes("login100-form-btn-disabled")
-    ).toBe(true);
+    let password = getByTestId('password')
+
+    let loginBtn = getByTestId('loginbtn')
+
+    expect(email.value).toBeTruthy();
+    expect(password.value).toBeFalsy()
+    expect(loginBtn.className.includes("login100-form-btn-disabled")).toBeTruthy()
+
   });
 
   test("Login button is disable when only password inputs is fullfilled", () => {
-    let tree = renderer.create(<Form password="MIuMpLIGAbon" />).root;
+    const { getByTestId } = render(<Form />);
 
-    let email = tree.findByProps({ id: "email" });
-    let password = tree.findByProps({ id: "password" });
+    let email =  getByTestId('email')
 
-    let loginBtn = tree.findByProps({ id: "loginButton" });
+    let password = getByTestId('password')
+    password.setAttribute('value', 'MIuMpLIGAbon')
+    fireEvent.change(password)
 
-    expect(email.props.value).toBeNull();
-    expect(password.props.value).toBeTruthy();
-    expect(
-      loginBtn.props.className.includes("login100-form-btn-disabled")
-    ).toBe(true);
+    let loginBtn = getByTestId('loginbtn')
+
+    expect(email.value).toBeFalsy();
+    expect(password.value).toBeTruthy()
+    expect(loginBtn.className.includes("login100-form-btn-disabled")).toBeTruthy()
+
   });
 
   test("Login button is enable when email and password inputs are fulfilled", async () => {
-    let tree = renderer.create(
-      <Form email="testify@test.ch" password="MIuMpLIGAbon" />
-    ).root;
+    const { getByTestId } = render(<Form />);
 
-    let email = tree.findByProps({ id: "email" });
-    let password = tree.findByProps({ id: "password" });
+    let email =  getByTestId('email')
+    email.setAttribute('value', 'testify@test.ch')
+    fireEvent.change(email)
 
-    let loginBtn = tree.findByProps({ id: "loginButton" });
+    let password = getByTestId('password')
+    password.setAttribute('value', 'MIuMpLIGAbon')
+    fireEvent.change(password)
 
-    expect(email.props.value).toBeTruthy();
-    expect(password.props.value).toBeTruthy();
-    expect(
-      loginBtn.props.className.includes("login100-form-btn-disabled")
-    ).toBe(false);
+    let loginBtn = getByTestId('loginbtn')
+
+    expect(email.value).toBeTruthy();
+    expect(password.value).toBeTruthy()
+    expect(loginBtn.className.includes("login100-form-btn-disabled")).toBeFalsy()
   });
 });
