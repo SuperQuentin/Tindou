@@ -68,13 +68,13 @@ a {
   -moz-transition: all 0.4s;
 }
 
-a:focus {
-	outline: none !important;
+.login100-form a:focus {
+	outline: none;
 }
 
-a:hover {
-	text-decoration: none !important;
-  color: #6675df !important;
+.login100-form a:hover {
+	text-decoration: none;
+  color: #6675df;
 }
 
 /*---------------------------------------------*/
